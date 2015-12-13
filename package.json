@@ -1,0 +1,33 @@
+{
+  "name": "quick",
+  "version": "0.1.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron-prebuilt": "^0.35.1",
+    "live-server": "^0.8.2",
+    "typescript": "^1.6.2"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-alpha.44",
+    "body-parser": "^1.14.1",
+    "electron-prebuilt": "^0.35.1",
+    "es6-shim": "^0.33.13",
+    "express": "^4.13.3",
+    "object-assign": "^4.0.1",
+    "systemjs": "0.19.2"
+  },
+  "scripts": {
+    "dev": "electron ./",
+    "clean": "rm -rf ./dist",
+    "clean:osx": "rm -rf ./dist/osx",
+    "clean:win": "rm -rf ./dist/win",
+    "build:osx": "npm run clean:osx && electron-packager . Quick --out=dist/osx --platform=darwin --arch=x64 --version=0.35.1 ",
+    "pack:osx": "npm run build:osx && electron-builder \"dist/osx/Quick.app\" --platform=osx --out=\"dist/osx\" --config=config.json",
+    "tsc": "tsc -p src -w",
+    "start": "live-server --open=src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": ""
+}
